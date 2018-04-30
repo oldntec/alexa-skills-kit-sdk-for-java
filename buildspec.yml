@@ -1,0 +1,33 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+
+phases:
+  install:
+    commands:
+      - echo starting build...
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - mvn clean verify
+  build:
+    commands:
+      - echo Deploying build
+      - mvn deploy
+  post_build:
+    commands:
+      - echo Build completed on `date`
+#artifacts:
+#  files:
+#    - files
+#  discard-paths: no
+#  base-directory: location
+# cache:
+#   paths:
+#     -

@@ -158,6 +158,13 @@
   </dependencies>
 
   <build>
+    <extensions>
+      <extension>
+          <groupId>com.github.platform-team</groupId>
+          <artifactId>aws-maven</artifactId>
+          <version>6.0.0</version>
+      </extension>
+    </extensions>
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>tst</testSourceDirectory>
     <pluginManagement>
@@ -205,4 +212,23 @@
       </build>
     </profile>
   </profiles>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>repo.oldntec.eu</id>
+      <uniqueVersion>true</uniqueVersion>
+      <url>s3://eu-oldntec-maven-repo</url>
+    </snapshotRepository>
+    <repository>
+      <id>repo.oldntec.eu</id>
+      <uniqueVersion>false</uniqueVersion>
+      <url>s3://eu-oldntec-maven-repo</url>
+    </repository>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>repo.oldntec.eu</id>
+      <url>s3://eu-oldntec-maven-repo/</url>
+    </repository>
+  </repositories>
 </project>
