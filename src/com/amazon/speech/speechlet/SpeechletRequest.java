@@ -24,6 +24,7 @@ import com.amazon.speech.speechlet.interfaces.audioplayer.request.PlaybackStarte
 import com.amazon.speech.speechlet.interfaces.audioplayer.request.PlaybackStoppedRequest;
 import com.amazon.speech.speechlet.interfaces.core.*;
 import com.amazon.speech.speechlet.interfaces.display.request.ElementSelectedRequest;
+import com.amazon.speech.speechlet.interfaces.messaging.request.MessageReceivedRequest;
 import com.amazon.speech.speechlet.interfaces.playbackcontroller.request.NextCommandIssuedRequest;
 import com.amazon.speech.speechlet.interfaces.playbackcontroller.request.PauseCommandIssuedRequest;
 import com.amazon.speech.speechlet.interfaces.playbackcontroller.request.PlayCommandIssuedRequest;
@@ -84,7 +85,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
         @Type(value = ListItemsDeletedRequest.class),
         @Type(value = ListCreatedRequest.class),
         @Type(value = ListUpdatedRequest.class),
-        @Type(value = ListDeletedRequest.class)
+        @Type(value = ListDeletedRequest.class),
+        @Type(value = MessageReceivedRequest.class)
 })
 public abstract class SpeechletRequest {
     private final String requestId;

@@ -30,6 +30,7 @@ import com.amazon.speech.speechlet.interfaces.core.*;
 import com.amazon.speech.speechlet.interfaces.display.Display;
 import com.amazon.speech.speechlet.interfaces.display.request.DisplayRequest;
 import com.amazon.speech.speechlet.interfaces.display.request.ElementSelectedRequest;
+import com.amazon.speech.speechlet.interfaces.messaging.request.MessageReceivedRequest;
 import com.amazon.speech.speechlet.interfaces.playbackcontroller.PlaybackController;
 import com.amazon.speech.speechlet.interfaces.playbackcontroller.request.NextCommandIssuedRequest;
 import com.amazon.speech.speechlet.interfaces.playbackcontroller.request.PauseCommandIssuedRequest;
@@ -337,6 +338,16 @@ public class SpeechletRequestDispatcher {
                 throw e;
             }
             /** Exception **/
+        } else if (speechletRequest instanceof MessageReceivedRequest) {
+
+                @SuppressWarnings("unchecked")
+
+                SpeechletRequestEnvelope<IntentRequest> parameterizedRequestEnvelope =
+
+                        (SpeechletRequestEnvelope<IntentRequest>) requestEnvelope;
+
+                speechletResponse = speechlet.onIntent(parameterizedRequestEnvelope);
+
         } else {
             String requestType =
                     (speechletRequest != null) ? speechletRequest.getClass().getName() : null;
